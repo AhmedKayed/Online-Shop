@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+
+        li {
+            color: rgb(236, 15, 225);
+        }
+         
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Cart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form method="POST" action='/searchresults' class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" name="Search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> 
+        </div>
+    </nav>
+
+
+    
+<script>
+    var CartofUser = "<%= CartofUser %>"
+</script>
+
+    <ul>
+        <% var galaxycount=0; %>
+        <% var iphonecount=0; %>
+        <% var leavescount=0; %>
+        <% var suncount=0; %>
+        <% var Siuuuucount=0; %>
+        <% var tenniscount=0; %>
+
+        <%for (let i=0; i < CartofUser.length; i++) {%>
+
+            <% if(CartofUser[i]==='Galaxy S21 Ultra'){ %>
+                    <%galaxycount = galaxycount+1 %> 
+            <% } %>
+
+            <% if(CartofUser[i]==='iPhone 13 Pro'){ %>
+                <%iphonecount = iphonecount+1 %> 
+            <% } %>
+
+            <% if(CartofUser[i]==='Leaves of Grass'){ %>
+                <%leavescount = leavescount+1 %> 
+            <% } %>
+
+            <% if(CartofUser[i]==='The Sun and Her Flowers'){ %>
+                <%suncount = suncount+1 %> 
+            <% } %>
+
+            <% if(CartofUser[i]==='Boxing Bag'){ %>
+                <%Siuuuucount = Siuuuucount+1 %> 
+            <% } %>
+
+            <% if(CartofUser[i]==='Tennis Racket'){ %>
+                <%tenniscount = tenniscount+1 %> 
+            <% } %>
+
+            <%  } %>
+
+
+          <% if (galaxycount>0){  %>
+            <li> <a href="galaxy"> Galaxy S21 Ultra</a>
+            <br>
+                 Count:  <%= galaxycount%>   
+                 <br>
+                 <form action="" method="post">
+                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                 name="action" value="galaxy">Clear 
+                     
+                 </button> 
+                 </form>   
+                        </li>  
+          <%} %>
+
+            
+          <% if (iphonecount>0){  %>
+            <li> <a href="iphone">iPhone 13 Pro</a>
+            <br>
+                 Count:  <%= iphonecount%> 
+                 <br>  
+                 <form action="" method="post">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                    name="action" value="iphone">Clear 
+                        
+                    </button> 
+                    </form>   
+            </li>  
+          <%} %>
+
+
+          <% if (leavescount>0){  %>
+            <li> <a href="leaves">Leaves of Grass</a>
+            <br>
+                 Count:  <%= leavescount%>
+                 <br>   
+                 <form action="" method="post">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                    name="action" value="leaves">Clear 
+                        
+                    </button> 
+                    </form>   
+            </li>  
+          <%} %>
+
+          <% if (suncount>0){  %>
+            <li> <a href="sun">The Sun and Her Flowers</a>
+            <br>
+                 Count:  <%= suncount%> 
+            <br>  
+            <form action="" method="post">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                name="action" value="sun">Clear 
+                    
+                </button> 
+                </form>   
+            </li>  
+
+          <%} %>
+
+
+          <% if (Siuuuucount>0){  %>
+            <li> <a href="boxing">Boxing Bag</a>
+            <br>
+                 Count:  <%= Siuuuucount%>  
+                 <br> 
+                 <form action="" method="post">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                    name="action" value="boxing">Clear 
+                        
+                    </button> 
+                    </form>   
+            </li>  
+
+          <%} %>
+
+          <% if (tenniscount>0){  %>
+            <li> <a href="tennis">Tennis Racket</a>
+            <br>
+                 Count:  <%= tenniscount%>   
+                 <br>
+                 <form action="" method="post">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" 
+                    name="action" value="tennis">Clear 
+                        
+                    </button> 
+                    </form>   
+            </li>  
+
+          <%} %>
+
+
+
+
+
+    </ul>
+
+
+</body>
+</html>
